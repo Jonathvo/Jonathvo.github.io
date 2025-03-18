@@ -1,0 +1,81 @@
+*{ 
+  color: #b17cd7;
+}
+body {
+  background-color: rgb(0, 0, 0);
+  font-family: Helvetica;
+  font-size: 15px;
+  margin: 50px;
+  padding: 10px;
+}
+
+h1 {
+  color: rgb(255, 119, 40);
+  text-align: center;
+}
+h3 {
+  color: rgb(255, 119, 40);
+}
+h2 {
+  color: #0ed91f;
+  text-align: center;
+}
+
+#pink {
+  color: #9927eb;
+}
+.li1  {
+  color: #0ed91f;
+}
+.li2 {
+  color: #9a0eff;
+}
+
+section {
+  text-align: right;
+  border: #9927eb solid 2px;
+}
+
+.heading-border {
+  border: #2eeb27 dashed 2px;
+  text-align: right;
+} 
+
+
+
+
+
+
+
+
+
+
+/* h1 {
+  color: red;
+}
+p {
+  color: rgb(37, 37, 156);
+}
+
+li {
+  color: #3300ff;
+}
+h2 {
+  color: #1862d0;
+}
+ h3 {
+  color: #c300ff;
+} */
+/*
+curly braces {}
+parentheses < >
+square brackets [ ]
+round brackets ( )
+colon :
+semicolon;
+syntax: rule of the lang
+cmd / to make things become comments
+hyphen -
+id is for specific things, li1 red, p2 blue for example
+class is for changing things in a group like all off the h1 wil become red for example
+class is ranked higher than making things later individually
