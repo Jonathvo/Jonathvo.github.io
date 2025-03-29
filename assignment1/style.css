@@ -283,3 +283,54 @@ body {
   margin-bottom: 30px;
   bottom: 0;
 }
+#page1 {
+  margin-bottom: 20px;
+}
+
+#flexbox1-1 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
+#flexbox1-2 {
+  display: flex;
+  margin-bottom: 60px;
+  margin-top: 30px;
+}
+
+#flexbox1-3 {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 200px;
+}
+
+.question-title {
+  color: rgb(255, 152, 42);
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.2rem;
+  margin-bottom: 35px;
+}
+.para1-1 {
+  color: rgb(189, 189, 189);
+  font-size: 1.1rem;
+  margin-left: 50px;
+  margin-right: 300px;
+  line-height: 25px;
+}
+.para1-2 {
+  color: rgb(189, 189, 189);
+  font-size: 1.1rem;
+  margin-left: 200px;
+  margin-right: 50px;
+  line-height: 25px;
+}
+.gifpage1 {
+  width: 350px;
+  height: 200px;
+}
