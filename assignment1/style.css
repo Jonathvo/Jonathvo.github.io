@@ -251,5 +251,75 @@ body {
   margin-right: 100px;
 }
 #page5 {
+  height: 200vh;
+  margin-bottom: 0px;
+}
+#question-title-5 {
+  color: rgb(255, 152, 42);
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+.para5-7 {
+  color: rgb(189, 189, 189);
+  line-height: 25px;
+}
+#flexbox5-1 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 160px;
+  margin-right: 800px;
+  row-gap: 50px;
+  margin-bottom: 20px;
+}
+#question-title-6 {
+  color: rgb(255, 152, 42);
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+#flexbox5-2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 800px;
+  margin-right: 160px;
+  row-gap: 50px;
+}
+#page6 {
+  height: 100vh;
+}
+#question-title-7 {
+  color: rgb(255, 152, 42);
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8rem;
+  margin-top: 50px;
+}
+#flexbox6-1 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 160px;
+  margin-right: 800px;
+  row-gap: 50px;
+}
+#question-title-8 {
+  color: rgb(255, 152, 42);
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+#flexbox6-2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 800px;
+  margin-right: 160px;
+  row-gap: 50px;
+  margin-bottom: 0px;
+}
+#page6 {
   height: 100vh;
 }
