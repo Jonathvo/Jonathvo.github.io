@@ -445,7 +445,7 @@ body {
   text-align: center;
 }
 #page7 {
-  height: 100vh;
+  height: 200vh;
 }
 .gif7 {
   width: 350px;
@@ -477,4 +477,7 @@ body {
   margin-left: 660px;
   margin-right: 160px;
   margin-bottom: 50px;
+}
+#gif7-4 {
+  margin-left: 160px;
 }
