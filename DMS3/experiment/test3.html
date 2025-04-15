@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Through the Eras</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.161.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #111;
+        color: #ccc;
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        padding: 1rem;
+        position: relative;
+      }
+
+      .eras-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60vh;
+        position: relative;
+        z-index: 10;
+      }
+
+      .era-box {
+        height: 100%;
+        margin: 0 5px;
+        background-color: #333;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 1rem;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s;
+      }
+
+      .era-box:hover {
+        transform: translateY(-10px);
+        background-color: #444;
+      }
+
+      .era-box.active {
+        background-color: #fff;
+        color: #000;
+      }
+
+      .era-label {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.5rem;
+      }
+
+      .era-text {
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0 0.5rem;
+      }
+
+      .moving-text {
+        position: absolute;
+        color: #555;
+        font-size: 1rem;
+        white-space: nowrap;
+        pointer-events: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 5;
+      }
+
+      .info-panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        z-index: 100;
+      }
+
+      .info-content {
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .info-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .album-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .album {
+        background-color: #333;
+        padding: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .album:hover {
+        transform: scale(1.05);
+        background-color: #444;
+      }
+
+      .album-cover {
+        width: 100%;
+        aspect-ratio: 1/1;
+        background-color: #555;
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        color: #777;
+      }
+
+      .album-title {
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .album-artist {
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .play-controls {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .play-btn,
+      .stop-btn {
+        padding: 0.5rem 1rem;
+        background-color: #555;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .play-btn:hover,
+      .stop-btn:hover {
+        background-color: #777;
+      }
+
+      #canvas-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      /* Text path visualization for debugging */
+      .text-path {
+        position: absolute;
+        border: 1px solid rgba(100, 100, 100, 0.1);
+        pointer-events: none;
+        z-index: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+    <div class="container">
+      <div class="eras-container">
+        <div class="era-box" data-era="1930s" style="flex: 0.5">
+          <div class="era-label">1930s</div>
+          <div class="era-text">Jazz Age & Big Band</div>
+        </div>
+        <div class="era-box" data-era="1940s" style="flex: 0.7">
+          <div class="era-label">1940s</div>
+          <div class="era-text">Swing & Early R&B</div>
+        </div>
+        <div class="era-box" data-era="1950s" style="flex: 0.9">
+          <div class="era-label">1950s</div>
+          <div class="era-text">Birth of Rock & Roll</div>
+        </div>
+        <div class="era-box" data-era="1960s" style="flex: 1.1">
+          <div class="era-label">1960s</div>
+          <div class="era-text">Psychedelic Rock & Folk</div>
+        </div>
+        <div
+          class="era-box active"
+          data-era="1970s"
+          style="flex: 1.3; background-color: #fff; color: #000"
+        >
+          <div class="era-label">1970s</div>
+          <div class="era-text">Disco, Punk & Progressive Rock</div>
+        </div>
+        <div class="era-box" data-era="1980s" style="flex: 1.1">
+          <div class="era-label">1980s</div>
+          <div class="era-text">New Wave & Early Hip-Hop</div>
+        </div>
+        <div class="era-box" data-era="1990s" style="flex: 0.9">
+          <div class="era-label">1990s</div>
+          <div class="era-text">Grunge & Pop Revolution</div>
+        </div>
+        <div class="era-box" data-era="2000s" style="flex: 0.7">
+          <div class="era-label">2000s</div>
+          <div class="era-text">Digital Age & Indie Rock</div>
+        </div>
+        <div class="era-box" data-era="2010s" style="flex: 0.5">
+          <div class="era-label">2010s</div>
+          <div class="era-text">Streaming Era & EDM</div>
+        </div>
+      </div>
+
+      <!-- Moving text elements -->
+      <div class="moving-text" id="text1">
+        Resisting AI Automation: Critical collaboration with non-human
+        intelligence
+      </div>
+      <div class="moving-text" id="text2">
+        Music Through The Eras: A Journey Through Sound
+      </div>
+      <div class="moving-text" id="text3">
+        Exploring The Evolution of Musical Expression
+      </div>
+      <div class="moving-text" id="text4">
+        From Jazz To Electronic: The Cultural Tapestry of Sound
+      </div>
+
+      <!-- Path visualization for debugging -->
+      <div class="text-path" id="path-visual"></div>
+    </div>
+
+    <!-- Info Panel for 1970s -->
+    <div class="info-panel" id="info-1970s">
+      <div class="close-btn">&times;</div>
+      <div class="info-content">
+        <h2 class="info-title">1970s: The Golden Era of Musical Diversity</h2>
+        <p>
+          The 1970s saw an explosion of musical genres and experimental sounds.
+          From the glittery disco movement to the rebellion of punk rock and the
+          complexity of progressive rock, this decade transformed music forever.
+        </p>
+
+        <div class="album-grid">
+          <div class="album" data-album="Saturday Night Fever">
+            <div class="album-cover">🕺</div>
+            <div class="album-title">Saturday Night Fever</div>
+            <div class="album-artist">Bee Gees (1977)</div>
+          </div>
+          <div class="album" data-album="Dark Side of the Moon">
+            <div class="album-cover">🌑</div>
+            <div class="album-title">Dark Side of the Moon</div>
+            <div class="album-artist">Pink Floyd (1973)</div>
+          </div>
+          <div class="album" data-album="Never Mind the Bollocks">
+            <div class="album-cover">⚡</div>
+            <div class="album-title">Never Mind the Bollocks</div>
+            <div class="album-artist">Sex Pistols (1977)</div>
+          </div>
+          <div class="album" data-album="Rumours">
+            <div class="album-cover">🌙</div>
+            <div class="album-title">Rumours</div>
+            <div class="album-artist">Fleetwood Mac (1977)</div>
+          </div>
+          <div class="album" data-album="Hotel California">
+            <div class="album-cover">🏨</div>
+            <div class="album-title">Hotel California</div>
+            <div class="album-artist">Eagles (1976)</div>
+          </div>
+          <div class="album" data-album="Led Zeppelin IV">
+            <div class="album-cover">🧙</div>
+            <div class="album-title">Led Zeppelin IV</div>
+            <div class="album-artist">Led Zeppelin (1971)</div>
+          </div>
+        </div>
+
+        <div class="play-controls">
+          <button class="play-btn" data-era="1970s">
+            Play 1970s Sample Mix
+          </button>
+          <button class="stop-btn">Stop Music</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Three.js background
+      let scene, camera, renderer;
+      let particles;
+
+      function initThreeJS() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document
+          .getElementById("canvas-container")
+          .appendChild(renderer.domElement);
+
+        // Create particles
+        const particleGeometry = new THREE.BufferGeometry();
+        const particleCount = 200;
+
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
+          // Position
+          positions[i] = (Math.random() - 0.5) * 100;
+          positions[i + 1] = (Math.random() - 0.5) * 100;
+          positions[i + 2] = (Math.random() - 0.5) * 100;
+
+          // Color
+          colors[i] = 0.3 + Math.random() * 0.2;
+          colors[i + 1] = 0.3 + Math.random() * 0.2;
+          colors[i + 2] = 0.3 + Math.random() * 0.2;
+        }
+
+        particleGeometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(positions, 3)
+        );
+        particleGeometry.setAttribute(
+          "color",
+          new THREE.BufferAttribute(colors, 3)
+        );
+
+        const particleMaterial = new THREE.PointsMaterial({
+          size: 0.3,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.5,
+        });
+
+        particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
+
+        camera.position.z = 50;
+
+        animate();
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        particles.rotation.x += 0.0003;
+        particles.rotation.y += 0.0005;
+
+        renderer.render(scene, camera);
+      }
+
+      // Window resize handling
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // Recalculate text path dimensions
+        setupRectangularTextPath();
+      });
+
+      // Rectangular text path animation
+      function setupRectangularTextPath() {
+        // Get dimensions for rectangular path
+        const padding = 100;
+        const width = window.innerWidth - padding * 2;
+        const height = window.innerHeight - padding * 2;
+
+        // Set path visualization dimensions
+        const pathVisual = document.getElementById("path-visual");
+        pathVisual.style.left = padding + "px";
+        pathVisual.style.top = padding + "px";
+        pathVisual.style.width = width + "px";
+        pathVisual.style.height = height + "px";
+
+        // Define path points
+        const pathPoints = [
+          { x: padding, y: padding }, // Top-left
+          { x: padding + width, y: padding }, // Top-right
+          { x: padding + width, y: padding + height }, // Bottom-right
+          { x: padding, y: padding + height }, // Bottom-left
+          { x: padding, y: padding }, // Back to start (top-left)
+        ];
+
+        // Define path segments and their lengths
+        const pathSegments = [];
+        let totalLength = 0;
+
+        for (let i = 0; i < pathPoints.length - 1; i++) {
+          const start = pathPoints[i];
+          const end = pathPoints[i + 1];
+
+          const length = Math.sqrt(
+            Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2)
+          );
+
+          pathSegments.push({
+            start,
+            end,
+            length,
+            startDistance: totalLength,
+          });
+
+          totalLength += length;
+        }
+
+        // Function to get point at specific distance along the path
+        function getPointAtDistance(distance) {
+          // Normalize the distance to loop around the path
+          const loopedDistance = distance % totalLength;
+
+          // Find which segment this distance is on
+          let segmentIndex = 0;
+          for (let i = 0; i < pathSegments.length; i++) {
+            if (
+              pathSegments[i].startDistance <= loopedDistance &&
+              (i === pathSegments.length - 1 ||
+                pathSegments[i + 1].startDistance > loopedDistance)
+            ) {
+              segmentIndex = i;
+              break;
+            }
+          }
+
+          const segment = pathSegments[segmentIndex];
+          const segmentProgress =
+            (loopedDistance - segment.startDistance) / segment.length;
+
+          // Calculate position on this segment
+          const x =
+            segment.start.x +
+            (segment.end.x - segment.start.x) * segmentProgress;
+          const y =
+            segment.start.y +
+            (segment.end.y - segment.start.y) * segmentProgress;
+
+          // Calculate angle for rotation
+          let angle = 0;
+
+          // Text rotates based on which side of the rectangle it's on
+          if (segmentIndex === 0) {
+            // Top
+            angle = 0;
+          } else if (segmentIndex === 1) {
+            // Right
+            angle = 90;
+          } else if (segmentIndex === 2) {
+            // Bottom
+            angle = 180;
+          } else if (segmentIndex === 3) {
+            // Left
+            angle = 270;
+          }
+
+          return { x, y, angle };
+        }
+
+        // Animate text elements
+        const texts = document.querySelectorAll(".moving-text");
+
+        texts.forEach((text, index) => {
+          // Set different starting positions
+          const startOffset = (index * totalLength) / texts.length;
+          const speed = 50; // Lower is faster
+
+          gsap.to(text, {
+            duration: totalLength / speed,
+            ease: "none",
+            repeat: -1,
+            onUpdate: function () {
+              const progress = this.progress();
+              const distance = startOffset + progress * totalLength;
+              const point = getPointAtDistance(distance);
+
+              // Position the text
+              text.style.left = point.x + "px";
+              text.style.top = point.y + "px";
+
+              // Rotate the text based on which side it's on
+              text.style.transform = `translate(-50%, -50%) rotate(${point.angle}deg)`;
+            },
+          });
+        });
+      }
+
+      // Era box interaction
+      function setupEraBoxes() {
+        const eraBoxes = document.querySelectorAll(".era-box");
+
+        eraBoxes.forEach((box) => {
+          // Make draggable
+          let isDragging = false;
+          let startX, startY;
+          let originalX = 0,
+            originalY = 0;
+
+          box.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            box.style.zIndex = "10";
+
+            // Get current transform
+            const transform = window
+              .getComputedStyle(box)
+              .getPropertyValue("transform");
+            if (transform !== "none") {
+              const matrix = new DOMMatrix(transform);
+              originalX = matrix.m41;
+              originalY = matrix.m42;
+            }
+          });
+
+          document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+
+            box.style.transform = `translate(${originalX + dx}px, ${
+              originalY + dy
+            }px)`;
+          });
+
+          document.addEventListener("mouseup", () => {
+            if (isDragging) {
+              isDragging = false;
+              box.style.zIndex = "1";
+
+              // Animate back to original position
+              gsap.to(box, {
+                x: 0,
+                y: 0,
+                duration: 0.5,
+                ease: "power2.out",
+              });
+            }
+          });
+
+          // Click to show info panel
+          box.addEventListener("click", (e) => {
+            if (!isDragging) {
+              const era = box.getAttribute("data-era");
+              const infoPanel = document.getElementById(`info-${era}`);
+
+              // If info panel exists, show it
+              if (infoPanel) {
+                infoPanel.style.display = "flex";
+
+                // Set active state
+                document.querySelectorAll(".era-box").forEach((b) => {
+                  b.classList.remove("active");
+                  b.style.backgroundColor = "";
+                  b.style.color = "";
+                });
+
+                box.classList.add("active");
+                box.style.backgroundColor = "#fff";
+                box.style.color = "#000";
+              }
+            }
+          });
+        });
+      }
+
+      // Close info panel
+      function setupCloseButtons() {
+        document.querySelectorAll(".close-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const panel = btn.closest(".info-panel");
+            panel.style.display = "none";
+          });
+        });
+      }
+
+      // Music player
+      function setupMusicControls() {
+        document.querySelectorAll(".play-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const era = btn.getAttribute("data-era");
+            // In a real implementation, this would play actual music
+            console.log(`Playing ${era} music`);
+
+            // Visual feedback
+            btn.textContent = "Now Playing...";
+            btn.style.backgroundColor = "#8a2be2";
+
+            // Reset after 2 seconds for demo purposes
+            setTimeout(() => {
+              btn.textContent = `Play ${era} Sample Mix`;
+              btn.style.backgroundColor = "#555";
+            }, 2000);
+          });
+        });
+
+        document.querySelectorAll(".stop-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // In a real implementation, this would stop the music
+            console.log("Stopping music");
+
+            // Reset play buttons
+            document.querySelectorAll(".play-btn").forEach((playBtn) => {
+              playBtn.textContent = `Play ${playBtn.getAttribute(
+                "data-era"
+              )} Sample Mix`;
+              playBtn.style.backgroundColor = "#555";
+            });
+          });
+        });
+      }
+
+      // Album interaction
+      function setupAlbumInteraction() {
+        document.querySelectorAll(".album").forEach((album) => {
+          album.addEventListener("click", () => {
+            const albumName = album.getAttribute("data-album");
+            // In a real implementation, this would show more details or play the album
+            console.log(`Selected album: ${albumName}`);
+
+            // Visual feedback
+            album.style.transform = "scale(1.1)";
+            setTimeout(() => {
+              album.style.transform = "";
+            }, 300);
+          });
+        });
+      }
+
+      // Initialize everything
+      document.addEventListener("DOMContentLoaded", () => {
+        initThreeJS();
+        setupRectangularTextPath();
+        setupEraBoxes();
+        setupCloseButtons();
+        setupMusicControls();
+        setupAlbumInteraction();
+
+        // For demo purposes, create info panels for all eras
+        const eras = [
+          "1930s",
+          "1940s",
+          "1950s",
+          "1960s",
+          "1980s",
+          "1990s",
+          "2000s",
+          "2010s",
+        ];
+        const container = document.querySelector(".container");
+
+        eras.forEach((era) => {
+          const panel = document.createElement("div");
+          panel.className = "info-panel";
+          panel.id = `info-${era}`;
+
+          panel.innerHTML = `
+                    <div class="close-btn">&times;</div>
+                    <div class="info-content">
+                        <h2 class="info-title">${era}: Music Era</h2>
+                        <p>This would display information about the ${era} music era and its significant albums.</p>
+                        
+                        <div class="album-grid">
+                            <div class="album" data-album="Example Album 1">
+                                <div class="album-cover">🎵</div>
+                                <div class="album-title">Example Album 1</div>
+                                <div class="album-artist">Artist (${era.slice(
+                                  0,
+                                  -1
+                                )}5)</div>
+                            </div>
+                            <div class="album" data-album="Example Album 2">
+                                <div class="album-cover">🎸</div>
+                                <div class="album-title">Example Album 2</div>
+                                <div class="album-artist">Artist (${era.slice(
+                                  0,
+                                  -1
+                                )}7)</div>
+                            </div>
+                            <div class="album" data-album="Example Album 3">
+                                <div class="album-cover">🎹</div>
+                                <div class="album-title">Example Album 3</div>
+                                <div class="album-artist">Artist (${era.slice(
+                                  0,
+                                  -1
+                                )}9)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="play-controls">
+                            <button class="play-btn" data-era="${era}">Play ${era} Sample Mix</button>
+                            <button class="stop-btn">Stop Music</button>
+                        </div>
+                    </div>
+                `;
+
+          container.appendChild(panel);
+        });
+
+        // Reattach event listeners for new elements
+        setupCloseButtons();
+        setupMusicControls();
+        setupAlbumInteraction();
+      });
+    </script>
+  </body>
+</html>
