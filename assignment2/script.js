@@ -19,7 +19,3 @@ function updateProgressBar() {
   progressBar.style.width = value + "%";
 }
 // Add other functionalities here
-Beta
-0 / 0
-used queries
-1

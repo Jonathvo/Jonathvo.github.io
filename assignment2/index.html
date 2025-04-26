@@ -3,31 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>A2 - Browser-based Interactive Experiments</title>
     <!-- add the font family of your choice -->
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Header Section -->
-    <header>
-      <h1>Media Player Website</h1>
-    </header>
-
     <!-- Navigation Section -->
     <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
-        <!-- Add or remove navigation items as needed -->
-      </ul>
+      <div class="middle-section">
+        <img id="MTP-logo" src="MTP-logo.png" />
+        <p>ARTIST</p>
+        <p>SCHEDULE</p>
+        <p>NEWS</p>
+        <p>GALLERY</p>
+        <p>SHOP</p>
+      </div>
     </nav>
 
     <!-- Main Content Section -->
     <main class="container">
+      <section>
+        <h1>RUN NOW (ONIONN REMIX) | SON TUNG M-TP | Official Music Video</h1>
+      </section>
       <!-- Media Player Section -->
       <div class="media-player">
         <video id="custom-video-player" controls>
@@ -53,11 +52,29 @@
         </div>
       </div>
 
-      <!-- Additional Content Section -->
-      <section>
-        <h2>Additional Content</h2>
-        <p>This is where you can showcase any other relevant content.</p>
-        <!-- Add more content as needed -->
+      <!-- Information Content Section -->
+      <section id="video-info">
+        <div id="left-section">
+          <p>
+            <span style="font-weight: bold">EXECUTIVE PRODUCER:</span> NGUYEN
+            THANH TUNG
+          </p>
+          <p>
+            <span style="font-weight: bold">TALENT ASSISTANT:</span> VIET NGUYEN
+          </p>
+        </div>
+        <div id="middle-section">
+          <p><span style="font-weight: bold">COMPOSER:</span> SON TUNG M-TP</p>
+          <p><span style="font-weight: bold">MUSIC PRODUCER: </span> ONIONN</p>
+          <p>ARTIST: SON TUNG M-TP</p>
+        </div>
+        <div id="right-section">
+          <p>
+            <span style="font-weight: bold">MARKETING DIRECTOR:</span> HENRY
+            NGUYEN
+          </p>
+          <p><span style="font-weight: bold">PR EXECUTIVE:</span> NHAT DUY</p>
+        </div>
       </section>
     </main>
 
