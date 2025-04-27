@@ -9,6 +9,7 @@
 body,
 p,
 h1,
+h2,
 ul {
   margin: 0;
   padding: 0;
@@ -24,7 +25,6 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-
 
 /* Create a container for the main content */
 .container {
@@ -62,14 +62,14 @@ nav {
 }
 
 /* Heading styling */
-h1 {
+h1,
+h2 {
   font-size: 2rem;
   font-weight: 550;
   color: var(--main-bg-color);
   margin: 20px 0;
   margin-top: 60px;
 }
-
 
 /* Media player styling */
 .media-player {
@@ -125,7 +125,35 @@ h1 {
   margin-top: 20px;
   justify-content: space-between;
 }
-  
+.line {
+  border-bottom: 1.5px solid rgb(189, 189, 189);
+  margin-top: 55px;
+  width: 100%;
+}
+
+/* other musiv video styling */
+
+#thumbnail-01 {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+#title-01 {
+  font-size: 1.2rem;
+  font-weight: 550;
+  color: var(--text-color);
+  margin-top: 10px;
+  max-width: 500px;
+}
+
+#released {
+  font-size: 1rem;
+  font-weight: 50;
+  color: gray;
+}
 
 /* Footer styling */
 footer {
@@ -135,7 +163,3 @@ footer {
   padding: 10px 0;
   width: 100%;
 }
-Beta
-0 / 0
-used queries
-1
