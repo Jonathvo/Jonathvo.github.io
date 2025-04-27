@@ -1,7 +1,7 @@
 :root {
   --primary-bg-color: #f4f4f4;
   --text-color: #333;
-  --main-bg-color: #333;
+  --main-bg-color: #000000;
   --main-text-color: #fff;
   --main-btn-bg-color: #938989;
 }
@@ -10,6 +10,7 @@ body,
 p,
 h1,
 h2,
+h3,
 ul {
   margin: 0;
   padding: 0;
@@ -62,8 +63,7 @@ nav {
 }
 
 /* Heading styling */
-h1,
-h2 {
+h1 {
   font-size: 2rem;
   font-weight: 550;
   color: var(--main-bg-color);
@@ -133,16 +133,25 @@ h2 {
 
 /* other musiv video styling */
 
+h2,
+h3 {
+  font-size: 2rem;
+  font-weight: 550;
+  color: var(--main-bg-color);
+  margin: 20px 0;
+  margin-top: 50px;
+}
+
 #thumbnail-01 {
-  width: 500px;
-  height: 300px;
+  width: 600px;
+  height: 350px;
   border-radius: 10px;
   cursor: pointer;
   object-fit: cover;
 }
 
 #title-01 {
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: 550;
   color: var(--text-color);
   margin-top: 10px;
@@ -150,16 +159,80 @@ h2 {
 }
 
 #released {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 50;
   color: gray;
+}
+
+#thumbnail {
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+#title-left {
+  font-size: 1rem;
+  font-weight: 250;
+  color: var(--text-color);
+  margin-top: 10px;
+  max-width: 250px;
+}
+#released-left {
+  font-size: 0.8rem;
+  font-weight: 50;
+  color: gray;
+}
+
+#right-hand-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#other-music-videos {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  margin-top: 35px;
+}
+
+/* Viral videos styling */
+
+#viral-videos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  column-gap: 20px;
+  margin-top: 35px;
+}
+
+#thumbnail-viral {
+  width: 350px;
+  height: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+#title-viral {
+  font-size: 1.1rem;
+  font-weight: 250;
+  color: var(--text-color);
+  margin-top: 10px;
+  max-width: 350px;
 }
 
 /* Footer styling */
 footer {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  text-align: center;
   padding: 10px 0;
   width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 110px;
 }
