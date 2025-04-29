@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Video Navigator</title>
+    <style>
+            body {
+              font-family: Arial, sans-serif;
+              text-align: center;
+              padding: 20px;
+      \      }
+            video {
+              width: 80%;
+              max-width: 600px;
+              margin-bottom: 20px;
+            }
+            button {
+              padding: 10px 20px;
+              margin: 0 10px;
+              font-size: 16px;
+              cursor: pointer;
+            }
+            h2 {
+              margin-bottom: 20px;
+            }
+    </style>
+  </head>
+  <body>
+    <h2 id="videoTitle">Stardust</h2>
+
+    <video id="videoPlayer" controls>
+      <source src="stardust.mp4" type="video/mp4" />
+    </video>
+    <br />
+    <button id="backButton">Back</button>
+    <button id="nextButton">Next</button>
+    <button id="fullscreenButton">Fullscreen</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
