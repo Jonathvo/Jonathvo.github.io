@@ -12,15 +12,6 @@ body {
   color: rgb(202, 151, 122);
 }
 
-a {
-  color: rgb(202, 151, 122);
-}
-
-.double-border {
-  border: 6px double rgb(65, 41, 27);
-  border-radius: 16px;
-}
-
 video {
   width: 800px;
   /* width: 100%; */
@@ -28,10 +19,6 @@ video {
   border-radius: 12px;
 }
 
-h1 {
-  font-size: 2.3rem;
-  font-weight: bold;
-}
 .main-screen,
 .controls {
   display: flex;
@@ -54,6 +41,7 @@ h1 {
 
 .playlist {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   gap: 10px;
@@ -65,12 +53,12 @@ h1 {
 #progress-bar-container {
   width: 100%;
   height: 10px;
-  background-color: gray;
+  background-color: rgb(18, 18, 18);
 }
 #progress-bar {
   width: 0%;
   display: block;
-  background-color: coral;
+  background-color: rgb(0, 136, 255);
   height: 100%;
   transition: width 0.2s ease;
 }
@@ -89,16 +77,3 @@ button:hover {
   scale: 0.9;
   background-color: rgba(250, 235, 215, 0.25);
 }
-
-#likes {
-  font-size: 2.2rem;
-  color: rgb(168, 55, 55);
-}
-
-footer {
-  /* bottom: 0; */
-}
-Beta
-0 / 0
-used queries
-1

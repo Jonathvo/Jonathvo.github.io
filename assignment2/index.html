@@ -4,30 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A2 - Browser-based Interactive Experiments</title>
-    
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Zendots font-->
     <!-- Montserrat font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zen+Dots&display=swap" rel="stylesheet">
 
-
     <script src="script.js" defer></script>
   </head>
   <body>
     <!-- Navigation Section -->
     <nav>
-      <div class="middle-section">
+      <section class="middle-section">
         <img id="MTP-logo" src="MTP-logo.png" />
-        <p>ARTIST</p>
-        <p>SCHEDULE</p>
-        <p>NEWS</p>
-        <p>GALLERY</p>
-        <p>SHOP</p>
-      </div>
+        <p>
+          <span>ARTIST<br>ARTIST</span>
+        </p>
+        <p>
+          <span>SCHEDULE<br>SCHEDULE</span>
+        </p>
+        <p>
+          <span>NEWS<br>NEWS</span>
+        </p>
+        <p>
+          <span>GALLERY<br>GALLERY</span>
+        </p>
+        <p>
+          <span>SHOP<br>SHOP</span>
+        </p>
+      </section>
     </nav>
 
     <!-- Main Content Section -->
@@ -43,8 +50,9 @@
             type="video/mp4"
           />
         </video>
-        <div class="custom-controls">
-          <button id="play-pause-btn" onclick="togglePlayPause()">
+        
+        <div class="controls">
+          <button id="play-pause-btn">
             <img
               id="play-pause-img"
               src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
@@ -53,16 +61,32 @@
               height="24"
             />
           </button>
-          <!-- add the missing buttons or functionality here -->
+          <button id="mute-unmute-button" class="double-border">
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/no-audio--v1.png"
+              alt=""
+              id="mute-unmute-img"
+            />
+          </button>
           <div class="progress-bar">
             <span id="progress-bar-fill"></span>
           </div>
+          <button id="fullscreen-button" class="double-border">
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/full-screen--v1.png"
+              alt=""
+              id="fullscreen-img"
+            />
+          </button>
+          <button id="back" >Back</button>
+          <button id="next" >Next</button>
+
         </div>
       </div>
 
       <!-- Information Content Section -->
       <section id="video-info">
-        <div id="left-section">
+        <div class="infor" id="left-section">
           <p>
             <span style="font-weight: bold">EXECUTIVE PRODUCER:</span> NGUYEN
             THANH TUNG
@@ -71,12 +95,12 @@
             <span style="font-weight: bold">TALENT ASSISTANT:</span> VIET NGUYEN
           </p>
         </div>
-        <div id="middle-section">
+        <div class="infor" id="middle-section">
           <p><span style="font-weight: bold">COMPOSER:</span> SON TUNG M-TP</p>
           <p><span style="font-weight: bold">MUSIC PRODUCER: </span> ONIONN</p>
           <p>ARTIST: SON TUNG M-TP</p>
         </div>
-        <div id="right-section">
+        <div class="infor" id="right-section">
           <p>
             <span style="font-weight: bold">MARKETING DIRECTOR:</span> HENRY
             NGUYEN
@@ -89,89 +113,145 @@
 
       <!-- Other Music Videos Section -->
       <h2>OTHER MUSIC VIDEOS</h2>
-
       <section id="other-music-videos">
-        
-        <div>
+        <figure>
           <img id="thumbnail-01" src="thumbnail/thumbnail-01.png">
-          <p id="title-01">SƠN TÙNG M-TP | MUỘN RỒI MÀ SAO CÒN | OFFICIAL MUSIC VIDEO</p>
-          <p id="released">Premiered Apr 30, 2021</p>
-          <p id="released">295,037,181 views </p>
-        </div>
+          <figcaption>
+            <p id="title-01">SƠN TÙNG M-TP | MUỘN RỒI MÀ SAO CÒN | OFFICIAL MUSIC VIDEO</p>
+            <p class="released">Premiered Apr 30, 2021</p>
+            <p class="released">295,037,181 views </p>
+          </figcaption>
+        </figure>
         
-        <div id="right-hand-side">
-          <div><img id="thumbnail" src="thumbnail/thumbnail-02.png">
-            <p id="title-left">SƠN TÙNG M-TP | HÃY TRAO CHO ANH ft. Snoop Dogg | Official MV
-            </p>
-            <p id="released-left">Premiered Jul 1, 2019</span></p></div>
+        <section id="right-hand-side">
+          <figure>
+            <img class="thumbnail" src="thumbnail/thumbnail-02.png">
+            <figcaption>
+              <p class="title-left">SƠN TÙNG M-TP | HÃY TRAO CHO ANH ft. Snoop Dogg | Official MV
+              </p>
+              <p class="released-left">Premiered Jul 1, 2019</p>
+            </figcaption>
+          </figure>
           
-          <div><img id="thumbnail" src="thumbnail/thumbnail-03.png">
-            <p id="title-left">NƠI NÀY CÓ ANH | OFFICIAL MUSIC VIDEO | SƠN TÙNG M-TP
-            </p>
-            <p id="released-left">Premiered Feb 14, 2017<p>
-            </div>
+          <figure>
+            <img class="thumbnail" src="thumbnail/thumbnail-03.png">
+            <figcaption>
+              <p class="title-left">NƠI NÀY CÓ ANH | OFFICIAL MUSIC VIDEO | SƠN TÙNG M-TP
+              </p>
+              <p class="released-left">Premiered Feb 14, 2017</p>
+            </figcaption>
+          </figure>
                     
-          <div><img id="thumbnail" src="thumbnail/thumbnail-04.png">
-            <p id="title-left">SƠN TÙNG M-TP | CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO
-            </p>
-            <p id="released-left">Premiered Jul 5, 2020<p> </div>
+          <figure>
+            <img class="thumbnail" src="thumbnail/thumbnail-04.png">
+            <figcaption>
+              <p class="title-left">SƠN TÙNG M-TP | CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+              <p class="released-left">Premiered Jul 5, 2020</p> 
+            </figcaption>
+          </figure>
                     
-          <div><img id="thumbnail" src="thumbnail/thumbnail-05.png">
-            <p id="title-left">SƠN TÙNG M-TP | CHÚNG TA CỦA TƯƠNG LAI | OFFICIAL MUSIC VIDEO
-            </p>
-            <p id="released-left">Premiered Mar 8, 2024</p>
-          </div>
-        </div>
+          <figure>
+            <img class="thumbnail" src="thumbnail/thumbnail-05.png">
+            <figcaption>
+              <p class="title-left">SƠN TÙNG M-TP | CHÚNG TA CỦA TƯƠNG LAI | OFFICIAL MUSIC VIDEO</p>
+              <p class="released-left">Premiered Mar 8, 2024</p>
+            </figcaption>
+          </figure>
+        </section>
       </section>
 
       <div class="line"></div>
+
       <!-- VIRAL VIDEOS SECTION -->
+
       <h3>VIRAL VIDEOS</h3>
-
-<section id="viral-videos">
-  <div><img id="thumbnail-viral" src="thumbnail/thumbnail-06.png">
-    <p id="title-viral">LẠC TRÔI | OFFICIAL MUSIC VIDEO | SƠN TÙNG M-TP
-    </p>
-    <p id="released-left">Premiered Jan 1, 2017<p>
-    </div>
-
-    <div><img id="thumbnail-viral" src="thumbnail/thumbnail-07.png">
-      <p id="title-viral">SƠN TÙNG M-TP | CHÚNG TA CỦA HIỆN TẠI | OFFICIAL MUSIC VIDEO
-      </p>
-      <p id="released-left">Premiered Dec 21, 2020<p>
-      </div> 
+      <section class="viral-videos">
+        <div class="video-carousel">
+          <figure class="video-thumb">
+            <img class="thumbnail-viral" src="thumbnail/thumbnail-06.png">
+            <figcaption>
+              <p class="title-viral">LẠC TRÔI | OFFICIAL MUSIC VIDEO | SƠN TÙNG M-TP
+              </p>
+              <p class="released-left">Premiered Jan 1, 2017</p>
+            </figcaption>
+          </figure>
   
-            
-  <div><img id="thumbnail-viral" src="thumbnail/thumbnail-08.png">
-    <p id="title-viral">SƠN TÙNG M-TP | ĐỪNG LÀM TRÁI TIM ANH ĐAU | OFFICIAL MUSIC VIDEO
-    </p>
-    <p id="released-left">Premiered Jun 8, 2024</p>
-  </div>
+            <figure class="video-thumb">
+              <img class="thumbnail-viral" src="thumbnail/thumbnail-07.png">
+              <figcaption>
+                <p class="title-viral">SƠN TÙNG M-TP | CHÚNG TA CỦA HIỆN TẠI | OFFICIAL MUSIC VIDEO
+                </p>
+                <p class="released-left">Premiered Dec 21, 2020</p>
+              </figcaption>
+            </figure> 
+                    
+          <figure class="video-thumb">
+            <img class="thumbnail-viral" src="thumbnail/thumbnail-08.png">
+            <figcaption>
+              <p class="title-viral">SƠN TÙNG M-TP | ĐỪNG LÀM TRÁI TIM ANH ĐAU | OFFICIAL MUSIC VIDEO
+              </p>
+              <p class="released-left">Premiered Jun 8, 2024</p>
+            </figcaption>
+          </figure>
 
-</section>
+          <figure class="video-thumb">
+            <img class="thumbnail-viral" src="thumbnail/thumbnail-09.png">
+            <figcaption>
+              <p class="title-viral">SƠN TÙNG M-TP | THERE'S NO ONE AT ALL (ANOTHER VERSION) | OFFICIAL MUSIC VIDEO
+              </p>
+              <p class="released-left">Premiered Jul 5, 2022</p>
+            </figcaption>
+          </figure>
 
-    </main>
+          <figure class="video-thumb">
+            <img class="thumbnail-viral" src="thumbnail/thumbnail-10.png">
+            <figcaption>
+              <p class="title-viral">Cơn Mưa Ngang Qua (Remix 2022)
+              </p>
+              <p class="released-left">Premiered Jun 8, 2024</p>
+            </figcaption>
+          </figure>
+
+          <figure class="video-thumb">
+            <img class="thumbnail-viral" src="thumbnail/thumbnail-11.png">
+            <figcaption>
+              <p class="title-viral">Em Của Ngày Hôm Qua - Sơn Tùng MTP [OFFICIAL MV]
+              </p>
+              <p class="released-left">Premiered Mar 10, 2014</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      
+      <div class="carousel-wrapper">
+        <button class="scroll-left">←</button>
+        <div class="video-carousel">...</div>
+        <button class="scroll-right">→</button>
+      </div>
+
+      <div class="line"></div>
 
     <!-- Footer Section -->
+    
     <footer>
       <div id="footer-left">
         <p> More information about Son Tung M-TP:</p>
-          <a href="https://icons8.com/icon/59862/play">@Spotify </a>
-          <a href="https://icons8.com/icon/59862/play">@Itunes </a>
+          <a class="social-media" href="https://icons8.com/icon/59862/play">@Spotify </a>
+          <a class="social-media" href="https://icons8.com/icon/59862/play">@Itunes </a>
       </div>
       
       <div>
         <p>More information about M-TP Talent:</p>
-        <a href="https://icons8.com/icon/59862/play">@Facebook </a>
-        <a href="https://icons8.com/icon/59862/play">@Instagram </a>
-        <a href="https://icons8.com/icon/59862/play">@Twitter </a>
+        <a class="social-media" href="https://icons8.com/icon/59862/play">@Facebook </a>
+        <a class="social-media" href="https://icons8.com/icon/59862/play">@Instagram </a>
+        <a class="social-media" href="https://icons8.com/icon/59862/play">@Twitter </a>
       </div>
 
       <div id="footer-right">
         <p> More about M-TP Entertainment:</p>
-        <a href="https://icons8.com/icon/59862/play">@Facebook </a>
-        <a href="https://icons8.com/icon/59862/play">@Instagram </a>
-        <a href="https://icons8.com/icon/59862/play">@Twitter </a>
+        <a class="social-media" href="https://icons8.com/icon/59862/play">@Facebook </a>
+        <a class="social-media" href="https://icons8.com/icon/59862/play">@Instagram </a>
+        <a class="social-media" href="https://icons8.com/icon/59862/play">@Twitter </a>
       </div>
     </footer>
   </body>

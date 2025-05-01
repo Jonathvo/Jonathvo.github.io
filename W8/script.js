@@ -1,15 +1,15 @@
 // List of video objects with an ID and a source
 const videoList = [
-  { id: 1, src: "stardust.mp4", title: "Stardust" },
-  { id: 2, src: "zenscape.mp4", title: "Zenscape" },
+  { id: 1, src: "stardust.mp4" },
+  { id: 2, src: "hi.mp4" },
   {
     id: 3,
     src: "https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4",
-    title: "Logo OOMMOMMOSMOOMSMXOMOXSMOXSOMXMOMOX",
   },
 ];
 
 // Get the main video element by its ID
+
 const myVideo = document.querySelector("#my-video");
 console.log(myVideo);
 
@@ -67,6 +67,7 @@ function toggleAudio() {
 }
 
 // Buttons to load and play specific videos by index
+
 const stardustButton = document.querySelector("#stardust-vid-button");
 console.log(stardustButton);
 
@@ -74,13 +75,14 @@ stardustButton.addEventListener("click", function chooseVideo() {
   playVideo(0);
 });
 
-const zenscapeButton = document.querySelector("#zenscape-vid-button");
-console.log(zenscapeButton);
+///
+const stmtpVideoButton = document.querySelector("#STMTP-vid-button");
+console.log(stmtpVideoButton);
 
-zenscapeButton.addEventListener("click", function chooseVideo() {
+stmtpVideoButton.addEventListener("click", function chooseVideo() {
   playVideo(1);
 });
-
+///
 const musicVideoButton = document.querySelector("#musicvideo-vid-button");
 console.log(musicVideoButton);
 
@@ -107,52 +109,5 @@ function toggleFullscreen() {
     myVideo.requestFullscreen();
   } else {
     document.exitFullscreen();
-  }
-}
-
-// Like button functionality (adds 1 to the counter)
-const heartButton = document.querySelector("#heart-button");
-console.log(heartButton);
-
-heartButton.addEventListener("click", updateLikes);
-
-const likesContainer = document.querySelector("#likes");
-let likes = 0;
-
-function updateLikes() {
-  likes++;
-  likesContainer.textContent = likes;
-}
-
-// Step buttons to jump to specific timestamps in the video
-const step1Button = document.querySelector("#step1-button");
-console.log(step1Button);
-
-step1Button.addEventListener("click", gotoStep1);
-
-function gotoStep1() {
-  myVideo.currentTime = 16.0; // Jump to 16 seconds
-}
-
-const step2Button = document.querySelector("#step2-button");
-console.log(step2Button);
-
-step2Button.addEventListener("click", gotoStep2);
-
-function gotoStep2() {
-  myVideo.currentTime = 43.0; // Jump to 43 seconds
-}
-
-// Toggle fast-forwarding (2x speed) on and off
-const fastForwardButton = document.querySelector("#fast-forward-button");
-console.log(fastForwardButton);
-
-fastForwardButton.addEventListener("click", fastForward);
-
-function fastForward() {
-  if (myVideo.playbackRate === 1.0) {
-    myVideo.playbackRate = 2.0;
-  } else {
-    myVideo.playbackRate = 1.0;
   }
 }

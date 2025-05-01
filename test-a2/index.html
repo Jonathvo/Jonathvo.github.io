@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover Orbit Text Effect</title>
+    <style>
+      body {
+        background: #111;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .card {
+        width: 300px;
+        height: 200px;
+        background: #222;
+        color: white;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+
+      .floating-text {
+        position: fixed;
+        color: #fff;
+        font-size: 14px;
+        pointer-events: none;
+        opacity: 0;
+        will-change: transform;
+        transition: opacity 0.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="hover-card">ONE PIECE BASE</div>
+
+    <script>
+      const card = document.getElementById("hover-card");
+
+      const words = ["CREATIVE", "DESIGN", "STUDIO", "JUNNI"];
+      const floats = [];
+
+      words.forEach((word, i) => {
+        const span = document.createElement("span");
+        span.className = "floating-text";
+        span.textContent = word;
+        document.body.appendChild(span);
+        floats.push({ el: span, angle: (i / words.length) * Math.PI * 2 });
+      });
+
+      let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      let hovering = false;
+
+      card.addEventListener("mouseenter", () => {
+        hovering = true;
+        floats.forEach((f) => (f.el.style.opacity = 1));
+      });
+
+      card.addEventListener("mouseleave", () => {
+        hovering = false;
+        floats.forEach((f) => (f.el.style.opacity = 0));
+      });
+
+      card.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        floats.forEach((f) => {
+          f.angle += 0.03;
+          const radius = 50;
+          const x = mouse.x + Math.cos(f.angle) * radius;
+          const y = mouse.y + Math.sin(f.angle) * radius;
+          f.el.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      }
+
+      animate();
+    </script>
+  </body>
+</html>

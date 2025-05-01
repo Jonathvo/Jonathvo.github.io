@@ -37,7 +37,7 @@ body {
 
 /* Create a container for the main content */
 .container {
-  max-width: 1050px;
+  max-width: 1000px;
   width: 100%;
   padding: 10px;
 }
@@ -46,10 +46,9 @@ body {
 
 nav {
   color: var(--main-text-color);
-  font-size: 1.3rem;
   font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
   font-optical-sizing: auto;
-  font-weight: weight;
   font-style: normal;
   font-weight: bold;
   height: 55px;
@@ -64,12 +63,34 @@ nav {
   padding: 30px;
 }
 
+.nav {
+  font-size: 1.3rem;
+}
+
+nav .middle-section p {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 25px;
+  cursor: pointer;
+}
+
+nav .middle-section p span {
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+nav .middle-section p:hover span {
+  transform: translateY(-50%);
+}
+
 .middle-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 100%;
 }
+
 #MTP-logo {
   height: 60px;
   margin-bottom: 20px;
@@ -77,7 +98,7 @@ nav {
 
 /* Heading styling */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 550;
   color: var(--main-bg-color);
   margin: 20px 0;
@@ -92,9 +113,10 @@ h1 {
 
 .media-player video {
   max-width: 100%;
+  border-radius: 10px;
 }
 
-.custom-controls {
+.controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,8 +125,8 @@ h1 {
   width: 100%;
 }
 
-.custom-controls button {
-  background-color: var(--main-btn-bg-color);
+.controls button {
+  background-color: var(--primary-bg-color);
   color: var(--main-text-color);
   border: none;
   padding: 8px 12px;
@@ -112,8 +134,18 @@ h1 {
   font-size: 16px;
   display: flex;
   align-items: center;
+  transition: 0.4s;
+}
+.controls button:hover {
+  scale: 1.2;
 }
 
+#next {
+  color: var(--main-bg-color);
+}
+#back {
+  color: var(--main-bg-color);
+}
 .progress-bar {
   width: 100%;
   height: 10px;
@@ -137,6 +169,10 @@ h1 {
   flex-direction: row;
   margin-top: 20px;
   justify-content: space-between;
+}
+
+.infor {
+  font-size: 0.9rem;
 }
 .line {
   border-bottom: 1.5px solid rgb(189, 189, 189);
@@ -171,13 +207,13 @@ h3 {
   max-width: 500px;
 }
 
-#released {
+.released {
   font-size: 1.4rem;
   font-weight: 350;
   color: gray;
 }
 
-#thumbnail {
+.thumbnail {
   width: 250px;
   height: 150px;
   border-radius: 10px;
@@ -185,14 +221,14 @@ h3 {
   object-fit: cover;
 }
 
-#title-left {
+.title-left {
   font-size: 1rem;
   font-weight: 450;
   color: var(--text-color);
   margin-top: 10px;
   max-width: 250px;
 }
-#released-left {
+.released-left {
   font-size: 0.8rem;
   font-weight: 300;
   color: gray;
@@ -213,7 +249,7 @@ h3 {
 
 /* Viral videos styling */
 
-#viral-videos {
+.viral-videos {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -221,7 +257,7 @@ h3 {
   margin-top: 35px;
 }
 
-#thumbnail-viral {
+.thumbnail-viral {
   width: 350px;
   height: 200px;
   border-radius: 10px;
@@ -229,12 +265,33 @@ h3 {
   object-fit: cover;
 }
 
-#title-viral {
+.title-viral {
   font-size: 1.1rem;
   font-weight: 450;
   color: var(--text-color);
   margin-top: 10px;
   max-width: 350px;
+}
+
+.viral-videos {
+  padding: 1rem;
+}
+
+.video-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 12rem;
+}
+
+.video-thumb {
+  flex: 0 0 auto;
+  width: 330px;
+  height: 120px;
+  border-radius: 8px;
+  scroll-snap-align: start;
 }
 
 /* Footer styling */
@@ -243,10 +300,29 @@ footer {
   color: var(--main-text-color);
   padding: 10px 0;
   width: 100%;
-  height: 150px;
+  height: 250px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   column-gap: 110px;
   margin-top: 25px;
+}
+
+.social-media {
+  margin-right: 5px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-left,
+.scroll-right {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
