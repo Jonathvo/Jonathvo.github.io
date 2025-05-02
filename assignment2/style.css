@@ -366,38 +366,37 @@ footer {
 
 /* Styles for the Modal */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
-  display: flex; /* Use flexbox to center content */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
-  background-color: var(--primary-bg-color); /* Use your theme's background */
-  color: var(--text-color); /* Use your theme's text color */
-  margin: auto; /* Auto margin for centering (fallback) */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be responsive */
-  max-width: 500px; /* Max width for larger screens */
-  border-radius: 8px;
-  position: relative; /* Needed for absolute positioning of close button */
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  margin: auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
 }
 
 .close-button {
   color: #aaa;
-  float: right; /* Position to the right */
+  float: right;
   font-size: 28px;
   font-weight: bold;
-  position: absolute; /* Position relative to modal-content */
+  position: absolute;
   top: 10px;
   right: 15px;
   cursor: pointer;
@@ -405,16 +404,14 @@ footer {
 
 .close-button:hover,
 .close-button:focus {
-  color: #000;
-  text-decoration: none;
+  color: var(--main-hover-color);
   cursor: pointer;
 }
 
 /* Style for the acknowledgement button */
 #acknowledgement-btn {
   display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
+  margin: auto;
   font-size: 0.9rem;
   cursor: pointer;
   background-color: var(--accent-color);
