@@ -105,3 +105,28 @@ document.querySelector(".scroll-right").onclick = () => {
 document.querySelector(".scroll-left").onclick = () => {
   carousel.scrollBy({ left: -300, behavior: "smooth" });
 };
+
+// Get the modal, the button that opens it, and the <span> element that closes it
+const modal = document.getElementById("acknowledgement-modal");
+const btn = document.getElementById("acknowledgement-btn");
+const span = document.getElementsByClassName("close-button")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "flex"; // Use flex to maintain centering
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Add event listeners for video player controls (keep your existing code)
+// ... your existing script.js code for video player ...

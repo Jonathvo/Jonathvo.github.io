@@ -4,6 +4,10 @@
   --main-bg-color: #000000;
   --main-text-color: #fff;
   --main-btn-bg-color: #938989;
+  --main-hover-color: rgb(56, 122, 125);
+}
+.hover-effect:hover {
+  color: var(--main-hover-color);
 }
 
 body,
@@ -82,6 +86,7 @@ nav .middle-section p span {
 
 nav .middle-section p:hover span {
   transform: translateY(-50%);
+  color: var(--main-hover-color);
 }
 
 .middle-section {
@@ -328,22 +333,105 @@ h3 {
   font-size: 3rem;
   cursor: pointer;
   color: rgba(148, 148, 148, 0.365);
+  transition: 0.3s;
 }
 
+.scroll-left:hover,
+.scroll-right:hover {
+  color: var(--main-hover-color);
+}
 /* Footer styling */
 
 footer {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   width: 100%;
-  height: 250px;
+  height: 200px;
   display: flex;
   justify-content: space-around;
   text-align: center;
   align-items: center;
   column-gap: 50px;
+  font-weight: bold;
 }
 
 .social-media {
-  margin-right: 5px;
+  margin-right: 15px;
+  font-weight: normal;
+}
+
+.social-media:hover {
+  color: var(--main-hover-color);
+}
+
+/* Styles for the Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.modal-content {
+  background-color: var(--primary-bg-color); /* Use your theme's background */
+  color: var(--text-color); /* Use your theme's text color */
+  margin: auto; /* Auto margin for centering (fallback) */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be responsive */
+  max-width: 500px; /* Max width for larger screens */
+  border-radius: 8px;
+  position: relative; /* Needed for absolute positioning of close button */
+}
+
+.close-button {
+  color: #aaa;
+  float: right; /* Position to the right */
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute; /* Position relative to modal-content */
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style for the acknowledgement button */
+#acknowledgement-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: rgba(174, 174, 174, 0.438);
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#acknowledgement-btn:hover {
+  color: var(--main-hover-color);
+  background-color: var(--main-bg-color);
+  transform: scale(0.99);
+}
+
+#acknowledgement {
+  background-color: var(--main-bg-color);
+  height: 80px;
+  width: 100%;
 }
