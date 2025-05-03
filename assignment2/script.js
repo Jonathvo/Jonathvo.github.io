@@ -87,7 +87,7 @@ function loadVideo(index) {
   titleElement.textContent = videos[index].title;
   videoPlayer.play();
 }
-
+// next/back functionality
 nextButton.addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % videos.length;
   loadVideo(currentIndex);
@@ -98,6 +98,7 @@ backButton.addEventListener("click", () => {
   loadVideo(currentIndex);
 });
 
+// Left/right functionality
 const carousel = document.querySelector(".video-carousel");
 document.querySelector(".scroll-right").onclick = () => {
   carousel.scrollBy({ left: 300, behavior: "smooth" });
@@ -106,6 +107,7 @@ document.querySelector(".scroll-left").onclick = () => {
   carousel.scrollBy({ left: -300, behavior: "smooth" });
 };
 
+// acknowledgement part
 // Get the modal, the button that opens it, and the <span> element that closes it
 const modal = document.getElementById("acknowledgement-modal");
 const btn = document.getElementById("acknowledgement-btn");
@@ -121,12 +123,8 @@ span.onclick = function () {
   modal.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
-
-// Add event listeners for video player controls (keep your existing code)
-// ... your existing script.js code for video player ...

@@ -1,3 +1,9 @@
+/* I decided to use three main colors here, which are black, whitem, and mint blue. 
+Black and white are the main colors, while mint blue is used for hover effects and other accents. The reason for this choice is that
+I wanted to create a clean and modern look for the website.
+The black and white color scheme provides a strong contrast, making the content easy to read and visually appealing. The mint blue adds a touch of color without overwhelming the design, creating a fresh and inviting atmosphere. This color is also taken from the logo, which is a mint blue color.
+*/
+
 :root {
   --primary-bg-color: #f4f4f4;
   --text-color: #333;
@@ -48,6 +54,8 @@ body {
 
 /* Navigation styling */
 
+/* I want this Nav to be fixed at the top of the page, and add some interaction for them, like the srolling text effect when hovering over it, which make them more interactive and engaging to users. */
+
 nav {
   color: var(--main-text-color);
   font-family: "Montserrat", sans-serif;
@@ -94,6 +102,7 @@ nav .middle-section p:hover span {
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  column-gap: 10px;
 }
 
 #MTP-logo {
@@ -102,6 +111,8 @@ nav .middle-section p:hover span {
 }
 
 /* Heading styling */
+/* I made the heading font size larger and bolder to make it stand out more. As users click next or back,
+the heading will change in order to fit with the content. */
 h1 {
   font-size: 2rem;
   font-weight: 550;
@@ -120,6 +131,15 @@ h1 {
   max-width: 100%;
   border-radius: 10px;
 }
+
+/* I made 5 buttons with 5 different functions,
+which are play,pause,
+mute,
+unmute,
+fullscreen,
+next,
+back. This decision was made because I wanted to create a clean and modern look for the website. I do not want to make it in a button on style it colorful,
+because it would be too much for my site in terms of my preferences. */
 
 .controls {
   display: flex;
@@ -162,12 +182,13 @@ h1 {
 .progress-bar span {
   display: block;
   height: 100%;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-hover-color);
   width: 0;
   transition: width 0.3s ease;
 }
 
-/* video infor styling  */
+/* video infor styling
+I also added some infromation about the video, such as the title, released date, and description. I made this decision because I wanted to provide users with more context about the video they are watching. All of this information is the same because all of the music videos are all belong to the same artist. */
 
 #video-info {
   display: flex;
@@ -185,7 +206,10 @@ h1 {
   width: 100%;
 }
 
-/* other musiv video styling */
+/* other musiv video styling 
+
+I also added some other music videos that are related to the current video. I made this decision because I wanted to provide users with more options to explore and discover new content. I made the thumbnail smaller and added a title and released date for each video.
+ */
 
 h2,
 h3 {
@@ -271,7 +295,9 @@ h3 {
   box-shadow: 0 4px 8px rgba(176, 176, 176, 0.2);
 }
 
-/* Viral videos styling */
+/* Viral videos styling 
+These are the videos that are trending and popular. Users can slide these videos to the right to see more videos or simply click on the left or right arrow to see more videos. I made this because I wanted to add the dynamic and interactive element to the website.
+*/
 
 .viral-videos {
   display: flex;
@@ -340,7 +366,8 @@ h3 {
 .scroll-right:hover {
   color: var(--main-hover-color);
 }
-/* Footer styling */
+/* Footer styling
+At this footer, users can find the social media links and other information about the website. The reason is because it will be easier for users to find the information they need. I also added an acknowledgment section to acknowledge the developers and contributors who showed in my site. */
 
 footer {
   background-color: var(--main-bg-color);
@@ -386,7 +413,7 @@ footer {
   margin: auto;
   padding: 30px;
   width: 80%;
-  max-width: 500px;
+  max-width: 600px;
   border-radius: 10px;
   position: relative;
 }
@@ -408,7 +435,10 @@ footer {
   cursor: pointer;
 }
 
-/* Style for the acknowledgement button */
+/* Style for the acknowledgement button 
+I actually asked chat gpt to help me with this part, and it suggested me to use a button with a hover effect. However, I made some changes to the button style to make it more appealing and fit with the overall design of the website. 
+*/
+
 #acknowledgement-btn {
   display: block;
   margin: auto;
