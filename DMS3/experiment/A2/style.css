@@ -53,7 +53,7 @@ body {
   height: 100%;
 }
 
-.visual {
+.visual1 {
   width: 300px;
   height: 250px;
   object-fit: cover;
@@ -67,12 +67,119 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
 }
 #vid1:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
 }
-
+#vid2 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid2:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid3 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid3:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid4 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid4:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid5 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid5:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid6 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid6:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid7 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid7:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid8 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid8:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
 #vid1p {
   max-width: 300px;
   color: rgba(255, 255, 255, 0.5);
@@ -120,8 +227,8 @@ body {
 }
 
 .custom-cursor {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
   position: fixed;

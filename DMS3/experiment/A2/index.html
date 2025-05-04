@@ -29,7 +29,7 @@
           and big band influence.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid2">
         <h4>1960s</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">Orchestral</p>
@@ -38,7 +38,7 @@
           chamber-pop arrangements.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid3">
         <h4>1990s</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">R&B</p>
@@ -47,7 +47,7 @@
           of the 90s.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid4">
         <h4>2000s</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">Pop Punk</p>
@@ -56,7 +56,7 @@
           alternative rock.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid5">
         <h4>2010s</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">EDM</p>
@@ -65,7 +65,7 @@
           boom of the 2010s.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid6">
         <h4>2020s</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">Trap Rap</p>
@@ -74,7 +74,7 @@
           contemporary hip hop.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid7">
         <h4>2023+</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">Hyperpop</p>
@@ -83,7 +83,7 @@
           of late 2020s youth culture.
         </p>
       </div>
-      <div id="vid1">
+      <div id="vid8">
         <h4>Future</h4>
         <img class="visual" src="gif-02.gif" alt="" />
         <p id="title">Ambient/Chill</p>
@@ -94,12 +94,51 @@
       </div>
     </section>
 
+    <audio id="jazzAudio" src="music/Jazz.mp3" loop></audio>
+    <audio id="classicalAudio" src="music/Classical.mp3" loop></audio>
+    <audio id="rnbAudio" src="music/Smooth-RnB.mp3" loop></audio>
+    <audio id="punkAudio" src="music/Punk-Rock.mp3" loop></audio>
+    <audio id="edmAudio" src="music/EDM.mp3" loop></audio>
+    <audio id="rapAudio" src="music/Rap.mp3" loop></audio>
+    <audio id="hyperpopAudio" src="music/Hyperpop.mp3" loop></audio>
+    <audio id="futureAudio" src="music/Future.mp3" loop></audio>
+
     <div class="custom-cursor"></div>
-    <audio id="bgAudio" loop>
-      <source
-        src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/erokia_ambient-wave-56-msfxp7-78.mp3"
-        type="audio/mpeg"
-      />
-    </audio>
+
+    <script>
+      const audioMap = {
+        vid1: document.getElementById("jazzAudio"),
+        vid2: document.getElementById("classicalAudio"),
+        vid3: document.getElementById("rnbAudio"),
+        vid4: document.getElementById("punkAudio"),
+        vid5: document.getElementById("edmAudio"),
+        vid6: document.getElementById("rapAudio"),
+        vid7: document.getElementById("hyperpopAudio"),
+        vid8: document.getElementById("futureAudio"),
+      };
+
+      function stopAllExcept(currentId) {
+        for (let key in audioMap) {
+          if (key !== currentId) {
+            audioMap[key].pause();
+            audioMap[key].currentTime = 0;
+          }
+        }
+      }
+
+      for (let vidId in audioMap) {
+        const vidElement = document.getElementById(vidId);
+        const audio = audioMap[vidId];
+
+        vidElement.addEventListener("click", () => {
+          if (audio.paused) {
+            stopAllExcept(vidId);
+            audio.play();
+          } else {
+            audio.pause();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
