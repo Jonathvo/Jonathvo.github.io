@@ -1,0 +1,198 @@
+/* https://colorhunt.co/palette/1a120b3c2a21d5cea3e5e5cb */
+
+body {
+  background-color: #1a120b;
+  display: flex;
+  text-align: center;
+  margin: auto;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #e5e5cb;
+  /* color: #3c2a21; */
+  font-size: 1.1rem;
+  gap: 1.5rem;
+}
+
+.outer {
+  border: 2px dashed #e5e5cb7a;
+  width: 400px;
+  min-height: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.5s ease,
+    rotate 0.2s ease;
+}
+
+.outer:hover {
+  opacity: 0.8;
+  rotate: 10deg;
+  transform: translateY(-10px);
+  background-color: #a5552d;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgb(255, 119, 0);
+  border: none;
+  transition: background-color 0.5s ease, scale 0.4s ease, rotate 0.5s ease;
+}
+
+button:hover {
+  background-color: rgb(114, 71, 34);
+  scale: 0.95;
+  rotate: -360deg;
+}
+
+input {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 10rem;
+  border: solid 2px rgb(255, 119, 0);
+  transition: border-color 0.5s linear, background-color 0.5s ease,
+    rotate 0.5s ease;
+}
+
+input:hover {
+  background-color: rgb(131, 131, 131);
+  border-color: rgb(0, 255, 47);
+  color: #e5e5cb;
+}
+
+#duck-icon {
+  cursor: pointer;
+  fill: #de4a00;
+
+  transition: fill 0.5s ease;
+}
+#duck-icon:hover {
+  fill: #000000;
+}
+#my-duck {
+  transition: scale 0.9s ease;
+}
+#my-duck:hover {
+  scale: 2.05;
+}
+.box {
+  background-color: #de4a00;
+  animation-name: border-animation, box-animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border: 10px dashed #e5e5cb;
+}
+
+@keyframes box-animation {
+  0% {
+    background-color: #de4a00;
+  }
+  50% {
+    background-color: #7300de;
+  }
+  100% {
+    background-color: #00de38;
+  }
+}
+
+@keyframes border-animation {
+  0% {
+    border-color: #de0000;
+  }
+  50% {
+    border-color: #0400de;
+  }
+  100% {
+    border-color: #aade00;
+  }
+}
+
+#my-duck {
+  animation-name: bouncing-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+
+@keyframes bouncing-animation {
+  0%,
+  20%,
+  50%,
+  100% {
+    translate: 0px 0px;
+  }
+  40% {
+    translate: 0px -20px;
+  }
+  60% {
+    translate: 0px -10px;
+  }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #002aff;
+  border-top-color: rgb(0, 255, 102);
+  border-bottom-color: rgb(0, 255, 128);
+
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-radius: 50%;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#heart {
+  width: 50px;
+  height: 50px;
+  background-color: #ff0000;
+  animation-name: heartbeat;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    scale: 1;
+  }
+  20% {
+    scale: 1.2;
+  }
+  40% {
+    scale: 1;
+  }
+  60% {
+    scale: 1.2;
+    rotate: 20deg;
+  }
+  80% {
+    scale: 1;
+  }
+  100% {
+    scale: 1;
+  }
+}
