@@ -1,0 +1,107 @@
+/* body {
+  background-image: url(A3-Inter-materials/Line\ up.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a120b;
+  text-align: center;
+}
+ 
+
+
+.flexbox-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 11rem;
+  column-gap: 330px;
+}
+.left {
+  background-color: rgba(255, 228, 196, 0.442);
+  display: flex;
+  flex-direction: column;
+  
+}
+#Ton {
+padding-top: 25px;
+}
+#Tin {
+padding-top: 8px;
+}
+#Uyen {
+}
+.right{
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 115px;
+} */
+
+.image-container {
+  display: flex;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.image-container img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.back {
+  opacity: 0;
+}
+
+.image-container:hover .front {
+  opacity: 0;
+}
+
+.image-container:hover .back {
+  opacity: 1;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.lineup-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* Matches 768x512 proportions */
+  background-image: url("A3-Inter-materials/Line\ up.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Positioning using percentages (based on image size) */
+#Ton {
+  top: 29%;
+  left: 30%;
+}
+#Tin {
+  top: 27%;
+  left: 22%;
+}
+#Uyen {
+  top: 10%;
+  left: 52%;
+}
+#Minh {
+  top: 10%;
+  left: 72%;
+}
+#An {
+  top: 50%;
+  left: 38%;
+}
