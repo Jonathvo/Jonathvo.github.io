@@ -1,7 +1,67 @@
-img {
-  align-items: center;
+body {
+  background-image: url(A3-Inter-materials/Line\ up.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a120b;
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
+  text-align: center;
+  margin: auto;
   width: 100%;
+  height: 100%;
+}
+
+.image-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+
+.MinhTon {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.tin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.UyenAn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+.image-container img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.back {
+  opacity: 0;
+}
+
+.image-container:hover .front {
+  opacity: 0;
+}
+
+.image-container:hover .back {
+  opacity: 1;
 }
