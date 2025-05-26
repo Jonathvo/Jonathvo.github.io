@@ -1,69 +1,124 @@
-body {
-  background: #121212;
-  color: white;
-  font-family: sans-serif;
-  text-align: center;
+* {
+  padding: 0;
   margin: 0;
-  padding: 20px;
+  box-sizing: border-box;
 }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 100px);
-  gap: 16px;
-  justify-content: center;
-  margin: 40px auto;
+body {
+  background-image: url(bùalgbt.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
-
-.card {
-  width: 100px;
-  height: 140px;
-  perspective: 1000px;
-  cursor: pointer;
+.wrapper {
+  box-sizing: content-box;
+  width: 46.87em;
+  padding: 2.5em 3em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 0.6em;
+  box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
 }
-
-.card-inner {
+.game-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+  display: grid;
+  gap: 2rem;
 }
-
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
+.stats-container {
+  text-align: right;
+  margin-bottom: 1.55rem;
 }
-
-.card-front,
-.card-back {
+.stats-container span {
+  font-weight: bold;
+}
+.card-container {
+  position: relative;
+  width: 8.5rem;
+  height: 8.5rem;
+  cursor: pointer;
+}
+.card-before,
+.card-after {
   position: absolute;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.7s ease-out;
   backface-visibility: hidden;
+}
+.card-before {
+  background-image: url(Front.png);
   background-size: cover;
-  background-position: center;
-  border-radius: 8px;
 }
-
-.card-front {
-  background-image: url("assets/Front.png");
-}
-
-.card-back {
-  background-image: url("assets/01-icon.png");
+.card-after {
   transform: rotateY(180deg);
 }
+.card-container.flipped .card-before {
+  transform: rotateY(180deg);
+}
+.card-container.flipped .card-after {
+  transform: rotateY(0deg);
+}
 
-.actions {
-  margin-top: 20px;
+h1 {
+  font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(216, 23, 39);
+  font-size: 5.5em;
+  margin-bottom: 5.3em;
+}
+.controls-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-image: url(bg.png);
+  background-size: cover;
+  top: 0;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
   border: none;
-  font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 0.3em;
+  padding: 1em 1.5em;
   cursor: pointer;
+  background-color: rgb(182, 19, 33);
+  color: rgb(0, 0, 0);
+  margin-top: 2rem;
+}
+
+#stop {
+  font-size: 1.1em;
+  display: block;
+  margin: 1.1em auto 0 auto;
+  background-color: #986c6c;
+  color: #970c0c;
+}
+.controls-container button {
+  font-size: 1.3em;
+  box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+}
+.hide {
+  display: none;
+}
+#result {
+  text-align: center;
+}
+#result h2 {
+  font-size: 2.5em;
+}
+#result h4 {
+  font-size: 1.8em;
+  margin: 0.6em 0 1em 0;
 }
