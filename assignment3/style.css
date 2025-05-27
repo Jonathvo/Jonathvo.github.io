@@ -13,13 +13,22 @@ body {
 .wrapper {
   box-sizing: content-box;
   width: 46.87em;
-  padding: 2.5em 3em;
+  padding: 2em 3em;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
   border-radius: 0.6em;
-  box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+  font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(255, 234, 0);
+}
+.wrapper:hover {
+  box-shadow: 0 0.9em 2.8em rgba(255, 196, 0, 0.4);
 }
 .game-container {
   position: relative;
@@ -27,11 +36,12 @@ body {
   display: grid;
   gap: 2rem;
 }
-.stats-container {
-  text-align: right;
+.statsContainer {
+  text-align: left;
   margin-bottom: 1.55rem;
+  margin-right: 1.5rem;
 }
-.stats-container span {
+.statsContainer span {
   font-weight: bold;
 }
 .card-container {
@@ -91,10 +101,8 @@ h1 {
 button {
   border: none;
   border-radius: 0.3em;
-  padding: 1em 1.5em;
+  padding: 1em 2em;
   cursor: pointer;
-  background-color: rgb(182, 19, 33);
-  color: rgb(0, 0, 0);
   margin-top: 2rem;
 }
 
@@ -102,8 +110,8 @@ button {
   font-size: 1.1em;
   display: block;
   margin: 1.1em auto 0 auto;
-  background-color: #986c6c;
-  color: #970c0c;
+  background-color: #000000;
+  color: rgb(216, 23, 39);
 }
 .controls-container button {
   font-size: 1.3em;
@@ -114,13 +122,17 @@ button {
 }
 #result {
   text-align: center;
+  font-weight: 700;
+  font-style: normal;
+  font-weight: bold;
+  font-family: "UnifrakturCook", cursive;
 }
 #result h2 {
   font-size: 2.5em;
 }
 #result h4 {
   font-size: 1.8em;
-  margin: 0.6em 0 1em 0;
+  margin-bottom: 0.5em;
 }
 
 figure {
@@ -198,7 +210,7 @@ figure .liquid:after {
 .custom-cursor {
   width: 25px;
   height: 25px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 13px solid rgb(192, 20, 34);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -209,6 +221,17 @@ figure .liquid:after {
 }
 
 .cursor-hover {
-  transform: translate(-50%, -50%) scale(2);
-  background-color: rgb(255, 255, 255);
+  transform: translate(-50%, -50%) scale(3);
+  background-color: rgb(192, 20, 34);
+}
+
+.sound-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
 }
