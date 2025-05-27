@@ -24,3 +24,23 @@ figure.addEventListener("mouseenter", () => {
 figure.addEventListener("mouseleave", () => {
   cursor.classList.remove("cursor-hover");
 });
+
+const button = document.querySelector("button");
+
+button.addEventListener("mouseenter", () => {
+  cursor.classList.add("cursor-hover");
+});
+
+button.addEventListener("mouseleave", () => {
+  cursor.classList.remove("cursor-hover");
+});
+
+const sound = document.querySelector("sound");
+
+sound.addEventListener("mouseenter", () => {
+  cursor.classList.add("cursor-hover");
+});
+
+sound.addEventListener("mouseleave", () => {
+  cursor.classList.remove("cursor-hover");
+});
