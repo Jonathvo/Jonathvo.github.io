@@ -12,24 +12,22 @@ let secondCard = false;
 
 //Items array
 const items = [
-  { name: "bee", image: "01.png" },
-  { name: "crocodile", image: "02.png" },
-  { name: "macaw", image: "03.png" },
-  { name: "gorilla", image: "04.png" },
-  { name: "tiger", image: "05.png" },
-  { name: "monkey", image: "06.png" },
-  { name: "chameleon", image: "07.png" },
-  { name: "piranha", image: "08.png" },
-  { name: "anaconda", image: "09.png" },
-  { name: "sloth", image: "10.png" },
-  { name: "cockatoo", image: "11.png" },
-  { name: "toucan", image: "12.png" },
+  { name: "1", image: "01.png" },
+  { name: "2", image: "02.png" },
+  { name: "3", image: "03.png" },
+  { name: "4", image: "04.png" },
+  { name: "5", image: "05.png" },
+  { name: "6", image: "06.png" },
+  { name: "7", image: "07.png" },
+  { name: "8", image: "08.png" },
+  { name: "9", image: "09.png" },
+  { name: "10", image: "10.png" },
+  { name: "11", image: "11.png" },
+  { name: "12", image: "12.png" },
 ];
 
-//Initial Time
 let seconds = 0,
   minutes = 0;
-//Initial moves and win count
 let movesCount = 0,
   winCount = 0;
 
@@ -44,13 +42,13 @@ const timeGenerator = () => {
   //format time before displaying
   let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
   let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
-  timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
+  timeValue.innerHTML = `<span>Time: </span>${minutesValue}:${secondsValue}`;
 };
 
 //For calculating moves
 const movesCounter = () => {
   movesCount += 1;
-  moves.innerHTML = `<span>Moves:</span>${movesCount}`;
+  moves.innerHTML = `<span>Moves: </span>${movesCount}`;
 };
 
 //Pick random objects from the items array

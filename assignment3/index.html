@@ -6,6 +6,8 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
+    <script src="cursor.js" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +17,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="stats-container">
+      <div class="statsContainer">
         <div id="moves-count"></div>
         <div id="time"></div>
       </div>
@@ -31,8 +33,14 @@
         <span id="start">Start</span>
         <div class="liquid"></div>
       </figure>
+      <audio id="bg-sound" loop>
+        <source src="assets/background.mp3" type="audio/mpeg" />
+      </audio>
+
+      <button id="sound-toggle" class="sound-btn">🔊</button>
     </div>
 
     <script src="script.js"></script>
+    <div class="custom-cursor"></div>
   </body>
 </html>

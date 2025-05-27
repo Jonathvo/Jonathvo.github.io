@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-image: url(bùalgbt.png);
+  background-image: url(background.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -193,4 +193,22 @@ figure .liquid:after {
   100% {
     transform: translate(-50%, -75%) rotate(360deg);
   }
+}
+
+.custom-cursor {
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, background-color 0.2s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.cursor-hover {
+  transform: translate(-50%, -50%) scale(2);
+  background-color: rgb(255, 255, 255);
 }
