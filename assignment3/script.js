@@ -188,9 +188,9 @@ soundToggle.addEventListener("click", () => {
   soundOn = !soundOn;
   if (soundOn) {
     bgSound.play();
-    soundToggle.textContent = "P";
+    soundToggle.textContent = "Sound: ON";
   } else {
     bgSound.pause();
-    soundToggle.textContent = "O";
+    soundToggle.textContent = "Sound: OFF";
   }
 });
