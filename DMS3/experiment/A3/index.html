@@ -16,127 +16,141 @@
   </head>
   <body>
     <div>
-      <h1>EraShift</h1>
-      <h2>The Evlotiuon of Songs</h2>
+      <h1>Timeline</h1>
     </div>
     <section class="flex1">
       <div id="vid1">
-        <h4>1950s</h4>
+        <h4>1950s - 1960s</h4>
         <img class="visual" src="Jazz.gif" alt="" />
-        <p id="title">Jazz</p>
-        <p id="vid1p">
-          Smooth instrumentation and expressive vocals mirror 1950s vocal jazz
-          and big band influence.
+        <p id="title">Upbeat Jazz</p>
+        <p id="description">
+          Bright horns, walking bass, and lively rhythms recall the golden age
+          of upbeat, big-band-influenced jazz
         </p>
       </div>
       <div id="vid2">
-        <h4>1960s</h4>
-        <img class="visual" src="Classic.mp4" alt="" />
-        <p id="title">Orchestral</p>
-        <p id="vid1p">
-          Evokes the structured, cinematic feel found in 60s soundtrack and
-          chamber-pop arrangements.
+        <h4>1970s - 1980s</h4>
+        <img class="visual" src="Classic.gif" alt="" />
+        <p id="title">Cinematic Piano</p>
+        <p id="description">
+          Soft piano melodies and emotional vocals evoke the sweeping drama of
+          vintage ballads and film scores.
         </p>
       </div>
       <div id="vid3">
         <h4>1990s</h4>
         <img class="visual" src="SmoothRnB.gif" alt="" />
-        <p id="title">R&B</p>
-        <p id="vid1p">
-          Silky production and vocal runs reflect the sensual, vocal-driven R&B
-          of the 90s.
+        <p id="title">Laidback R&B</p>
+        <p id="description">
+          A modern vocal style layered over a 90s-style instrumental gives this
+          track a timeless, chill vibe.
         </p>
       </div>
       <div id="vid4">
         <h4>2000s</h4>
         <img class="visual" src="PunkRock.gif" alt="" />
-        <p id="title">Pop Punk</p>
-        <p id="vid1p">
-          High-energy guitars and emo-inspired vocals capture early-2000s
-          alternative rock.
+        <p id="title">Emo Punk</p>
+        <p id="description">
+          Gritty guitars and emotionally charged vocals mirror the pop-punk
+          energy of early 2000s bands like Paramore.
         </p>
       </div>
       <div id="vid5">
         <h4>2010s</h4>
         <img class="visual" src="EDM.gif" alt="" />
-        <p id="title">EDM</p>
-        <p id="vid1p">
-          Thumping bass and electronic production reflect the mainstream EDM
-          boom of the 2010s.
+        <p id="title">Festival EDM</p>
+        <p id="description">
+          Euphoric build-ups and pounding drops reflect the anthemic, mainstage
+          sounds of Garrix, Avicii, and 2010s rave culture.
         </p>
       </div>
       <div id="vid6">
-        <h4>2020s</h4>
+        <h4>2010s - 2020s</h4>
         <img class="visual" src="Rap.gif" alt="" />
-        <p id="title">Trap Rap</p>
-        <p id="vid1p">
-          Deep male vocals, autotune, and layered 808s match the sound of
-          contemporary hip hop.
+        <p id="title">Modern Pop</p>
+        <p id="description">
+          Danceable grooves and synth-heavy polish channel the retro-futuristic
+          style of Dua Lipa and the nostalgic pop revival.
         </p>
       </div>
       <div id="vid7">
-        <h4>2023+</h4>
+        <h4>2020s</h4>
         <img class="visual" src="HyperPop.gif" alt="" />
-        <p id="title">Hyperpop</p>
-        <p id="vid1p">
-          Fast-paced, glitchy textures and genre-blending mark the chaotic sound
-          of late 2020s youth culture.
+        <p id="title">Trap Rap</p>
+        <p id="description">
+          Although lyricism defined earlier eras, this track leans into today's
+          vibe-driven sound with autotune and booming 808s.
         </p>
       </div>
       <div id="vid8">
-        <h4>Future</h4>
+        <h4>2016 - Current</h4>
+        <img class="visual" src="kpop.gif" alt="" />
+        <p id="title">Feel-Good K-Pop</p>
+        <p id="description">
+          Bright, upbeat energy and polished production showcase K-pop's
+          infectious optimism and genre-blending appeal.
+        </p>
+      </div>
+      <div id="vid9">
+        <h4>2020s - Future</h4>
         <img class="visual" src="Ambient Slow.gif" alt="" />
         <p id="title">Ambient/Chill</p>
-        <p id="vid1p">
-          Minimalist and atmospheric, reflecting emerging trends in music for
-          focus, mood, and meditation.
+        <p id="description">
+          Gentle vocals and soft textures create a calming atmosphere — perfect
+          for meditation, studying, or introspection.
+        </p>
+      </div>
+      <div id="vid10">
+        <h4>2022 - 2023</h4>
+        <img class="visual" src="Pop.gif" alt="" />
+        <p id="title">Chaotic Hyperpop</p>
+        <p id="description">
+          Distorted vocals and sonic overload define this noisy, glitch-filled
+          sound born from internet chaos and genre rebellion.
         </p>
       </div>
     </section>
 
-    <audio id="jazzAudio" src="music/Jazz.mp3" loop></audio>
-    <audio id="classicalAudio" src="music/Classical.mp3" loop></audio>
-    <audio id="rnbAudio" src="music/Smooth-RnB.mp3" loop></audio>
-    <audio id="punkAudio" src="music/Punk-Rock.mp3" loop></audio>
-    <audio id="edmAudio" src="music/EDM.mp3" loop></audio>
-    <audio id="rapAudio" src="music/Rap.mp3" loop></audio>
-    <audio id="hyperpopAudio" src="music/Hyperpop.mp3" loop></audio>
-    <audio id="futureAudio" src="music/ambient slow.mp3" loop></audio>
-
     <div class="custom-cursor"></div>
 
-    <script>
-      const audioMap = {
-        vid1: document.getElementById("jazzAudio"),
-        vid2: document.getElementById("classicalAudio"),
-        vid3: document.getElementById("rnbAudio"),
-        vid4: document.getElementById("punkAudio"),
-        vid5: document.getElementById("edmAudio"),
-        vid6: document.getElementById("rapAudio"),
-        vid7: document.getElementById("hyperpopAudio"),
-        vid8: document.getElementById("futureAudio"),
-      };
+    <audio id="audio1" src="music/Jazz.mp3"></audio>
+    <audio id="audio2" src="music/Classical.mp3"></audio>
+    <audio id="audio3" src="music/Smooth-RnB.mp3"></audio>
+    <audio id="audio4" src="music/Punk-rock.mp3"></audio>
+    <audio id="audio5" src="music/edm.mp3"></audio>
+    <audio id="audio6" src="music/Pop.mp3"></audio>
+    <audio id="audio7" src="music/rap.mp3"></audio>
+    <audio id="audio8" src="music/kpop duet.mp3"></audio>
+    <audio id="audio9" src="music/ambient slow.mp3"></audio>
+    <audio id="audio10" src="music/hyperpop.mp3"></audio>
 
-      function stopAllExcept(currentId) {
-        for (let key in audioMap) {
-          if (key !== currentId) {
-            audioMap[key].pause();
-            audioMap[key].currentTime = 0;
-          }
-        }
+    <script>
+      const audioElements = [
+        document.getElementById("audio1"),
+        document.getElementById("audio2"),
+        document.getElementById("audio3"),
+        document.getElementById("audio4"),
+        document.getElementById("audio5"),
+        document.getElementById("audio6"),
+        document.getElementById("audio7"),
+        document.getElementById("audio8"),
+        document.getElementById("audio9"),
+        document.getElementById("audio10"),
+      ];
+
+      function stopAllAudio() {
+        audioElements.forEach((audio) => {
+          audio.pause();
+          audio.currentTime = 0;
+        });
       }
 
-      for (let vidId in audioMap) {
-        const vidElement = document.getElementById(vidId);
-        const audio = audioMap[vidId];
-
-        vidElement.addEventListener("click", () => {
-          if (audio.paused) {
-            stopAllExcept(vidId);
-            audio.play();
-          } else {
-            audio.pause();
-          }
+      for (let i = 1; i <= 10; i++) {
+        const vid = document.getElementById(`vid${i}`);
+        vid.addEventListener("click", () => {
+          stopAllAudio();
+          const audio = document.getElementById(`audio${i}`);
+          audio.play();
         });
       }
     </script>

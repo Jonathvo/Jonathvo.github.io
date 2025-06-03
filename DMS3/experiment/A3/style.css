@@ -181,9 +181,35 @@ body {
   transition: transform 0.3s ease;
   color: rgb(255, 255, 255);
 }
-#vid1p {
-  max-width: 300px;
+#vid9 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid9:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+#vid10 {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.7s;
+}
+#vid10:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
 }
 
 .flex1 {
@@ -201,7 +227,7 @@ body {
   padding-left: 50px;
   max-width: 1320px;
   margin-bottom: 100px;
-  height: 500px;
+  height: 530px;
 }
 
 .flex1::-webkit-scrollbar {
@@ -242,4 +268,23 @@ body {
 .cursor-hover {
   transform: translate(-50%, -50%) scale(2);
   background-color: rgb(255, 255, 255);
+}
+
+#description {
+  max-width: 300px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+#vid1:hover .description,
+#vid2:hover .description,
+#vid3:hover .description,
+#vid4:hover .description,
+#vid5:hover .description,
+#vid6:hover .description,
+#vid7:hover .description,
+#vid8:hover .description,
+#vid9:hover .description,
+#vid10:hover .description {
+  opacity: 1;
 }

@@ -10,17 +10,29 @@
   <body>
     <h1>ERASHIFT</h1>
     <h2>THE EVOLUTION OF SONG</h2>
-    <h3>
-      EraShift is an interactive web project exploring how generative AI
-      interprets and replicates the stylistic evolution of music from the 1950s
-      to 2020s. Featuring decade-specific songs built from the same lyrics,
-      paired with looping visuals, it critically examines AI’s creative
-      strengths, limitations, and cultural implications in music history.
-    </h3>
+    <div id="flex">
+      <h3>
+        EraShift is an interactive web project exploring how generative AI
+        interprets and replicates the stylistic evolution of music from the
+        1950s to the 2020s. Featuring decade-specific songs built from the same
+        lyrics and paired with looping visuals, it critically examines AI’s
+        creative strengths, limitations, and cultural implications in the
+        context of music history. Through this lens, the project invites
+        reflection on how technology reshapes our understanding of genre,
+        authorship, and cultural memory.
+      </h3>
+      <h4>
+        The project combines human creativity with a wide range of generative AI
+        tools to produce its music, visuals, and interactive website. From sound
+        design to animation to code, the process involved constant negotiation
+        between human intent and machine-generated content. Developed
+        collaboratively by three students—Jonathan, Xander, and Milo—EraShift
+        serves as a multidisciplinary experiment in design, music, and emerging
+        technology.
+      </h4>
+    </div>
 
-    <a href="index.html">
-      <button>Go to Next Page</button>
-    </a>
+    <a href="index.html"><span>Discover more</span></a>
     <div class="slider" style="--width: 100px; --height: 50px; --quantity: 11">
       <div class="list">
         <div class="item" style="--position: 1">
@@ -105,5 +117,53 @@
     </div>
 
     <div class="custom-cursor"></div>
+    <script>
+      const cursor = document.querySelector(".custom-cursor");
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+
+      const h1 = document.querySelector("h1");
+
+      h1.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-hover");
+      });
+
+      h1.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-hover");
+      });
+
+      const h2 = document.querySelector("h2");
+
+      h2.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-hover");
+      });
+
+      h2.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-hover");
+      });
+
+      const a = document.querySelector("a");
+
+      a.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-hover");
+      });
+
+      a.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-hover");
+      });
+
+      const slider1 = document.querySelector("slider1");
+
+      slider1.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-hover");
+      });
+
+      slider1.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-hover");
+      });
+    </script>
   </body>
 </html>
