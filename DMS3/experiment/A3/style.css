@@ -54,9 +54,9 @@ body {
   height: 100%;
 }
 
-.visual1 {
-  width: 300px;
-  height: 250px;
+.visual {
+  width: 240px;
+  height: 300px;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -201,6 +201,7 @@ body {
   padding-left: 50px;
   max-width: 1320px;
   margin-bottom: 100px;
+  height: 500px;
 }
 
 .flex1::-webkit-scrollbar {
