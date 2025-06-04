@@ -15,13 +15,13 @@ h1.addEventListener("mouseleave", () => {
   cursor.classList.remove("cursor-hover");
 });
 
-const figure = document.querySelector("figure");
+const section = document.querySelector("section");
 
-figure.addEventListener("mouseenter", () => {
+section.addEventListener("mouseenter", () => {
   cursor.classList.add("cursor-hover");
 });
 
-figure.addEventListener("mouseleave", () => {
+section.addEventListener("mouseleave", () => {
   cursor.classList.remove("cursor-hover");
 });
 
