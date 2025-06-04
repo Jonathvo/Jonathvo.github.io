@@ -21,7 +21,13 @@
     <section class="flex1">
       <div id="vid1">
         <h4>1950s - 1960s</h4>
-        <img class="visual" src="Jazz.gif" alt="" />
+        <img
+          class="visual"
+          src="Jazz-still.png"
+          data-gif="Jazz.gif"
+          data-still="Jazz-still.png"
+          alt="Jazz"
+        />
         <p id="title">Upbeat Jazz</p>
         <p id="description">
           Bright horns, walking bass, and lively rhythms recall the golden age
@@ -30,7 +36,14 @@
       </div>
       <div id="vid2">
         <h4>1970s - 1980s</h4>
-        <img class="visual" src="Classic.gif" alt="" />
+        <img
+          class="visual"
+          src="Classic-still.png"
+          data-gif="Classic.gif"
+          data-still="Classic-still.png"
+          alt="Classic"
+        />
+
         <p id="title">Cinematic Piano</p>
         <p id="description">
           Soft piano melodies and emotional vocals evoke the sweeping drama of
@@ -39,7 +52,14 @@
       </div>
       <div id="vid3">
         <h4>1990s</h4>
-        <img class="visual" src="SmoothRnB.gif" alt="" />
+        <img
+          class="visual"
+          src="SmoothRnB-still.png"
+          data-gif="SmoothRnB.gif"
+          data-still="SmoothRnB-still.png"
+          alt="R&B"
+        />
+
         <p id="title">Laidback R&B</p>
         <p id="description">
           A modern vocal style layered over a 90s-style instrumental gives this
@@ -48,7 +68,14 @@
       </div>
       <div id="vid4">
         <h4>2000s</h4>
-        <img class="visual" src="PunkRock.gif" alt="" />
+        <img
+          class="visual"
+          src="PunkRock-still.png"
+          data-gif="PunkRock.gif"
+          data-still="PunkRock-still.png"
+          alt="Punk"
+        />
+
         <p id="title">Emo Punk</p>
         <p id="description">
           Gritty guitars and emotionally charged vocals mirror the pop-punk
@@ -57,7 +84,14 @@
       </div>
       <div id="vid5">
         <h4>2010s</h4>
-        <img class="visual" src="EDM.gif" alt="" />
+        <img
+          class="visual"
+          src="EDM-still.png"
+          data-gif="EDM.gif"
+          data-still="EDM-still.png"
+          alt="EDM"
+        />
+
         <p id="title">Festival EDM</p>
         <p id="description">
           Euphoric build-ups and pounding drops reflect the anthemic, mainstage
@@ -66,7 +100,14 @@
       </div>
       <div id="vid6">
         <h4>2010s - 2020s</h4>
-        <img class="visual" src="Rap.gif" alt="" />
+        <img
+          class="visual"
+          src="Pop-still.png"
+          data-gif="Pop.gif"
+          data-still="Pop-still.png"
+          alt="Pop"
+        />
+
         <p id="title">Modern Pop</p>
         <p id="description">
           Danceable grooves and synth-heavy polish channel the retro-futuristic
@@ -75,7 +116,14 @@
       </div>
       <div id="vid7">
         <h4>2020s</h4>
-        <img class="visual" src="HyperPop.gif" alt="" />
+        <img
+          class="visual"
+          src="Rap-still.png"
+          data-gif="Rap.gif"
+          data-still="Rap-still.png"
+          alt="Rap"
+        />
+
         <p id="title">Trap Rap</p>
         <p id="description">
           Although lyricism defined earlier eras, this track leans into today's
@@ -84,7 +132,14 @@
       </div>
       <div id="vid8">
         <h4>2016 - Current</h4>
-        <img class="visual" src="kpop.gif" alt="" />
+        <img
+          class="visual"
+          src="kpop-still.png"
+          data-gif="kpop.gif"
+          data-still="kpop-still.png"
+          alt="K-pop"
+        />
+
         <p id="title">Feel-Good K-Pop</p>
         <p id="description">
           Bright, upbeat energy and polished production showcase K-pop's
@@ -93,7 +148,14 @@
       </div>
       <div id="vid9">
         <h4>2020s - Future</h4>
-        <img class="visual" src="Ambient Slow.gif" alt="" />
+        <img
+          class="visual"
+          src="Ambient Slow-still.png"
+          data-gif="Ambient Slow.gif"
+          data-still="Ambient Slow-still.png"
+          alt="Ambient"
+        />
+
         <p id="title">Ambient/Chill</p>
         <p id="description">
           Gentle vocals and soft textures create a calming atmosphere — perfect
@@ -102,7 +164,14 @@
       </div>
       <div id="vid10">
         <h4>2022 - 2023</h4>
-        <img class="visual" src="Pop.gif" alt="" />
+        <img
+          class="visual"
+          src="HyperPop-still.png"
+          data-gif="HyperPop.gif"
+          data-still="HyperPop-still.png"
+          alt="Hyperpop"
+        />
+
         <p id="title">Chaotic Hyperpop</p>
         <p id="description">
           Distorted vocals and sonic overload define this noisy, glitch-filled
@@ -138,6 +207,8 @@
         document.getElementById("audio10"),
       ];
 
+      let currentPlaying = null;
+
       function stopAllAudio() {
         audioElements.forEach((audio) => {
           audio.pause();
@@ -147,12 +218,34 @@
 
       for (let i = 1; i <= 10; i++) {
         const vid = document.getElementById(`vid${i}`);
+        const audio = document.getElementById(`audio${i}`);
+
         vid.addEventListener("click", () => {
-          stopAllAudio();
-          const audio = document.getElementById(`audio${i}`);
-          audio.play();
+          if (currentPlaying === audio && !audio.paused) {
+            // Pause if same audio is playing
+            audio.pause();
+            currentPlaying = null;
+          } else {
+            // Stop other audio, play new one
+            stopAllAudio();
+            audio.play();
+            currentPlaying = audio;
+          }
         });
       }
+
+      const visuals = document.querySelectorAll(".visual");
+
+      visuals.forEach((img) => {
+        const gifSrc = img.dataset.gif;
+        const stillSrc = img.dataset.still;
+
+        // Toggle play on click (optional override)
+        img.addEventListener("click", () => {
+          const isGif = img.src.includes(".gif");
+          img.src = isGif ? stillSrc : gifSrc;
+        });
+      });
     </script>
   </body>
 </html>
