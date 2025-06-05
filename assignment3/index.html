@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Game</title>
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="reset.css" />
-    <script src="cursor.js" defer></script>
+    <link rel="icon" href="bg.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font: Chosen for a creepy vibe font to match the game's theme -->
     <link
       href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Cursor: Circle cursor with a hover effect for to make it more interactive and interesting -->
+    <script src="cursor.js" defer></script>
+    <script src="script.js" defer></script>
   </head>
+
   <body>
-    <div class="wrapper">
-      <div class="statsContainer">
+    <main class="wrapper">
+      <section class="statsContainer">
         <div id="moves-count"></div>
         <div id="time"></div>
-      </div>
-      <div class="game-container"></div>
-      <button id="stop" class="hide">Stop Game</button>
-    </div>
+      </section>
 
-    <div class="controls-container">
-      <h1>"Quy Tha Ma Bat" Memory Game</h1>
+      <section class="game-container"></section>
+
+      <button id="stop" class="hide">Stop Game</button>
+    </main>
+
+    <section class="controls-container">
+      <header>
+        <h1>"Quy Tha Ma Bat" Memory Game</h1>
+      </header>
+
       <p id="result"></p>
-      <!-- <button id="start">Start Game</button> -->
+
+      <!-- Stylized start button using a figure: The button is designed to look like it contains flowing blood to highlight the game's theme -->
       <figure href="#">
-        <span id="start">Start</span>
+        <figcaption>
+          <span id="start">Start</span>
+        </figcaption>
         <div class="liquid"></div>
       </figure>
 
+      <!-- Background sound -->
       <audio id="bg-sound" loop>
         <source src="ambient-sound.wav" type="audio/mpeg" />
       </audio>
 
+      <!-- Sound toggle -->
       <sound id="sound-toggle" class="sound-btn">Sound: OFF</sound>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
     <div class="custom-cursor"></div>
   </body>
 </html>

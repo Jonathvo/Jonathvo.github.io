@@ -1,8 +1,17 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+/* </-- Design choices: I initially pitched a commercial website and planned to build the entire page. However, after the presentation, I realized that wasn’t necessary. As a result, I decided to completely change my project to something entirely different from what I originally presented. I believe this new direction is more aligned with the assignment requirements.
+
+Since I changed the project, the design also changed. All the visuals in this project were created by me and my team during our Digital Media Studio 2 class. The final product is a memory game that allows users to flip cards and find matching pairs. All 12 icons featured in the game represent Vietnamese ghosts, which is why the overall theme is creepy—intended to give users a spine-tingling experience.  
+
+In terms of sound: I made it by myself in Audacity with the noise sound and some riser to make it more creepy. The sound is played when user clicks on SOUND on the right bottom corner. The background music is designed to enhance the eerie atmosphere of the game, making it more immersive for the players.  
+
+Reflecting on the development of this prototype, several key insights and challenges that popped up that will influence my approach to broader projects in the future. Designing a layout in Figma before coding was extremely helpful. It allowed me to visualize the overall structure and flow of the project, helping me plan ahead and avoid confusion during development. Choosing a strong design theme also enhanced the engagement and immersive quality of the final product. In this instance, the creepy, ghost-themed aesthetic made the game more memorable and impactful.
+
+A major advantage throughout the process was the use of AI tools like ChatGPT. To be honest, I had to admit that I utilized AI for code reviews, suggestions, and general debugging. It became a valuable learning resource, especially for JavaScript, which I find quite challenging. For example, I initially struggled with implementing the custom cursor effect, but with AI guidance, I was able to bring that idea to life in a clean and effective way.
+
+However, I realized that relying too much on AI without fully understanding the logic behind the code can be risky. While the final outcomes appeared impressive, I didn’t always grasp how the code worked. Moving forward, I intend to use AI as a supportive tool rather than a crutchl, helping me improve, learn, and debug while still putting in the effort to understand the foundations of what I’m building. Overall, this experience demonstrated the potential of combining thoughtful design, creativity, and the smart use of AI to enhance web development.
+
+--> */
+
 body {
   background-image: url(background.png);
   background-size: cover;
